@@ -1,0 +1,25 @@
+{
+  "name": "loonemi",
+  "version": "1.0.0",
+  "description": "Premium Loan EMI Calculator & Auditing Panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "emi",
+    "calculator",
+    "dashboard",
+    "mysql",
+    "express"
+  ],
+  "author": "Eslavath Narasimha Naik",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.43.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
+  }
+}

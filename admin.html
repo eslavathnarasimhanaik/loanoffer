@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Loonemi Lead & Payout Management</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="emi.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="dark-theme">
+  <!-- Glowing background blobs -->
+  <div class="glow-bg glow-primary"></div>
+  <div class="glow-bg glow-secondary"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <i class="fa-solid fa-user-shield logo-icon"></i>
+        <span>Loonemi Admin</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Customer Portal</a>
+        <a href="#leadsTableSection" class="active"><i class="fa-solid fa-list-check"></i> Manage Leads</a>
+      </nav>
+      <div class="header-actions" style="display: flex; gap: 12px; align-items: center;">
+        <button id="logoutBtn" class="btn-secondary" style="padding: 8px 14px; font-size: 13px; display: none; align-items: center; gap: 6px; border-radius: 10px; border-color: rgba(239, 68, 68, 0.3); color: var(--danger);">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle Light/Dark Mode">
+          <i class="fa-solid fa-sun icon-sun"></i>
+          <i class="fa-solid fa-moon icon-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Wall Container (Gmail + OTP authentication) -->
+  <section id="loginWallSection" style="display: block; padding: 60px 20px;">
+    <div class="login-card glass-panel" id="loginCard" style="max-width: 420px; margin: 40px auto; padding: 40px; text-align: center; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+      <div class="login-header" style="margin-bottom: 28px;">
+        <div class="login-logo" style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">
+          <i class="fa-solid fa-user-lock"></i>
+        </div>
+        <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 6px;">Admin Login</h2>
+        <p style="color: var(--text-muted); font-size: 13px; line-height: 1.4;">Access restricted. Sign in with the administrator password.</p>
+      </div>
+
+      <div id="authAlert" class="auth-alert" style="display: none; padding: 12px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; text-align: left; margin-bottom: 20px;"></div>
+
+      <form id="loginForm">
+        <div class="form-group" style="text-align: left; margin-bottom: 16px;">
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Gmail Address</label>
+          <div class="input-wrapper" style="margin-top: 6px;">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" id="adminEmail" value="eslavathnarasimhanaik@gmail.com" readonly style="width: 100%; cursor: not-allowed; opacity: 0.8; font-weight: 600;">
+          </div>
+        </div>
+
+        <div class="form-group" style="text-align: left; margin-bottom: 24px;">
+          <label for="adminPassword" style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Password</label>
+          <div class="input-wrapper" style="margin-top: 6px;">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="adminPassword" placeholder="Enter Password" required style="width: 100%;">
+          </div>
+        </div>
+
+        <button type="submit" id="loginSubmitBtn" class="btn-primary" style="width: 100%;">
+          Login & Enter Panel <i class="fa-solid fa-right-to-bracket" style="margin-left: 6px;"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Main Content Container (Hidden until logged in) -->
+  <main class="dashboard-container" id="adminDashboardContent" style="display: none;">
+    
+    <!-- Title Area -->
+    <section class="hero-section">
+      <h1>Lead & Payout Administration</h1>
+      <p>Review submitted EMI calculations, audit participant details, and authorize reward payments.</p>
+    </section>
+
+    <!-- Analytics Dashboard Overview -->
+    <section class="metrics-overview">
+      <div class="metrics-grid">
+        <div class="metric-box glass-panel">
+          <div class="metric-header-icon color-primary"><i class="fa-solid fa-users"></i></div>
+          <span class="metric-title">Total Referrals</span>
+          <span class="metric-value" id="statTotalLeads">0</span>
+        </div>
+        <div class="metric-box glass-panel">
+          <div class="metric-header-icon color-warning"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <span class="metric-title">Pending Payouts</span>
+          <span class="metric-value" id="statPendingCount">0</span>
+          <span class="metric-subtext" id="statEstPendingAmt">Est: ₹0</span>
+        </div>
+        <div class="metric-box glass-panel">
+          <div class="metric-header-icon color-success"><i class="fa-solid fa-circle-dollar-to-slot"></i></div>
+          <span class="metric-title">Total Payouts Paid</span>
+          <span class="metric-value highlight" id="statPaidAmt">₹0</span>
+          <span class="metric-subtext" id="statPaidCount">0 payouts</span>
+        </div>
+        <div class="metric-box glass-panel">
+          <div class="metric-header-icon color-danger"><i class="fa-solid fa-ban"></i></div>
+          <span class="metric-title">Disqualified</span>
+          <span class="metric-value" id="statDisqualified">0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters & Action Bar -->
+    <section class="admin-actions-bar glass-panel">
+      <div class="controls-row">
+        <!-- Search bar -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="adminSearchInput" placeholder="Search by name, phone, or email...">
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons-group">
+          <button id="generateMockBtn" class="btn-secondary">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Mock Leads
+          </button>
+          <button id="exportJSONBtn" class="btn-secondary">
+            <i class="fa-solid fa-file-export"></i> Export JSON
+          </button>
+          <button id="clearAllBtn" class="btn-secondary btn-danger-action">
+            <i class="fa-solid fa-trash-can"></i> Clear All
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters tab -->
+      <div class="filters-row">
+        <span class="filter-label">Filter Status:</span>
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="all">All Submissions</button>
+          <button class="filter-pill" data-filter="Pending">Pending</button>
+          <button class="filter-pill" data-filter="Paid">Paid</button>
+          <button class="filter-pill" data-filter="Disqualified">Disqualified</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Leads Table -->
+    <section class="leads-table-section glass-panel" id="leadsTableSection">
+      <div class="table-container">
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Applicant Info</th>
+              <th>Calculation Details</th>
+              <th>Verification Fields</th>
+              <th>Status</th>
+              <th>Reward</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTableBody">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <i class="fa-regular fa-folder-open empty-icon"></i>
+        <h3>No Leads Found</h3>
+        <p>There are no submissions in the database. Use the Customer Portal to submit one, or click "Generate Mock Leads" to populate test data.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Payout Approval Modal -->
+  <div class="modal-overlay" id="payoutModal">
+    <div class="modal-content glass-panel">
+      <div class="modal-icon color-success"><i class="fa-solid fa-circle-dollar-to-slot"></i></div>
+      <h2>Authorize Reward Payout</h2>
+      <p>Please enter the verified referral cash payout details for <strong id="payoutName">...</strong>.</p>
+      
+      <form id="payoutForm">
+        <div class="form-group" style="text-align: left; margin-bottom: 16px;">
+          <label for="rewardAmount">Reward Amount (₹5 - ₹30) <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+            <input type="number" id="rewardAmount" min="5" max="30" value="15" required>
+          </div>
+        </div>
+        
+        <div class="form-group" style="text-align: left; margin-bottom: 24px;">
+          <label for="transactionId">UPI Transaction ID <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-receipt"></i>
+            <input type="text" id="transactionId" placeholder="e.g. TXN9872514392" required>
+          </div>
+        </div>
+
+        <div class="modal-actions-buttons" style="display: flex; gap: 12px;">
+          <button type="button" id="cancelPayoutBtn" class="btn-secondary" style="flex: 1;">Cancel</button>
+          <button type="submit" class="btn-primary" style="flex: 1; background: var(--success); color: #fff;">Confirm Payout</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Detail Viewer Drawer/Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-content glass-panel" style="max-width: 600px; text-align: left;">
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; color: var(--primary);">
+        <i class="fa-solid fa-id-card"></i> Lead Application Details
+      </h3>
+      
+      <div class="details-grid" id="detailsContent">
+        <!-- Populated dynamically -->
+      </div>
+      
+      <button class="btn-primary" id="closeDetailsBtn" style="margin-top: 24px;">Close Panel</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 Loonemi. Admin Payout System. Created by Eslavath Narasimha Naik.</p>
+      <div class="footer-links">
+        <a href="index.html">Customer Dashboard</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="admin.js"></script>
+</body>
+</html>

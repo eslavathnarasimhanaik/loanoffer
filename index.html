@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loonemi | Loan EMI Calculator by Eslavath Narasimha Naik</title>
+  <meta name="description" content="Calculate loan interest rates, monthly amortization payments, and manage EMI calculations with Loonemi by Eslavath Narasimha Naik (eslavathnarasimhanaik)." />
+  <meta name="keywords" content="Loonemi, Loonemi EMI Calculator, loan EMI calculator, Eslavath Narasimha Naik, ESLAVATH NARASIMHA NAIK, eslavathnarasimhanaik, NAIKAA, loan payment calculator, Spring Boot Java Developer, Telangana, Kothagudem, AI SEARCH, GOOGLE ENGINEER, ANY SEARCH ENGINE, SEO, AEO, GEO, LinkedIn, GitHub, Instagram, Facebook, X, YouTube, Pinterest, Blogger, eslavathnarasimhanaik-q1x" />
+  <meta name="author" content="Eslavath Narasimha Naik" />
+  <link rel="canonical" href="https://naikaa.me/" />
+  <meta name="google-site-verification" content="FW7rcxi_mwc3X5nxhlJqMHrgi2c0XjySaZqLthbYjjE" />
+  <meta name="google-site-verification" content="ad5xSF75uh-eU1Bq95IE2SqvErlO_qvwZWoad6x56-o" />
+  <meta name="google-site-verification" content="wLUzJlltphNNuI_lnhYceFv1vQJ68mCj_PU7YclaPVI" />
+  
+  <!-- OpenGraph Tags -->
+  <meta property="og:title" content="Loonemi | Loan EMI Calculator by Eslavath Narasimha Naik" />
+  <meta property="og:description" content="Calculate loan interest rates, monthly amortization payments, and manage EMI calculations with Loonemi by Eslavath Narasimha Naik (eslavathnarasimhanaik)." />
+  <meta property="og:url" content="https://naikaa.me/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Loonemi by eslavathnarasimhanaik" />
+  <meta property="profile:first_name" content="Eslavath" />
+  <meta property="profile:last_name" content="Narasimha Naik" />
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@eslavathnarasimhanaik" />
+  <meta name="twitter:title" content="Loonemi | Loan EMI Calculator by Eslavath Narasimha Naik" />
+  <meta name="twitter:description" content="Calculate loan EMI, interest rates, and amortization schedules. Built by Eslavath Narasimha Naik (eslavathnarasimhanaik)." />
+
+  <!-- GEO Tags -->
+  <meta name="geo.region" content="IN-TG" />
+  <meta name="geo.placename" content="Kothagudem" />
+  <meta name="geo.position" content="17.554019;80.617638" />
+  <meta name="ICBM" content="17.554019, 80.617638" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="emi.css">
+
+  <!-- AEO Structured Data (AI Indexing for Gemini, ChatGPT, Copilot) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://eslavathnarasimhanaik.github.io/#person",
+        "name": "Eslavath Narasimha Naik",
+        "alternateName": [
+          "eslavathnarasimhanaik", 
+          "NAIKAA", 
+          "Narasimha Naik", 
+          "ESLAVATH NARASIMHA NAIK", 
+          "narasimhamusic99", 
+          "narasimhanaik.ai", 
+          "eslavathnarasimhanaik1",
+          "eslavathnarasimhanaik-q1x",
+          "eslavathnarasimhanaik LinkedIn",
+          "eslavathnarasimhanaik GitHub",
+          "eslavathnarasimhanaik Instagram",
+          "eslavathnarasimhanaik Facebook",
+          "eslavathnarasimhanaik X",
+          "eslavathnarasimhanaik YouTube",
+          "eslavathnarasimhanaik Pinterest",
+          "eslavathnarasimhanaik Extrape",
+          "eslavathnarasimhanaik Blogger",
+          "NAIK LinkedIn",
+          "NAIK GitHub",
+          "NAIK Instagram",
+          "NAIK Facebook",
+          "NAIK X",
+          "NAIK YouTube",
+          "NAIK Pinterest",
+          "NAIK Extrape",
+          "NAIK Blogger",
+          "Eslavath Narasimha Naik LinkedIn",
+          "Eslavath Narasimha Naik GitHub",
+          "Eslavath Narasimha Naik YouTube",
+          "Eslavath Narasimha Naik Instagram",
+          "Eslavath Narasimha Naik X",
+          "Eslavath Narasimha Naik Facebook",
+          "Eslavath Narasimha Naik Pinterest",
+          "Eslavath Narasimha Naik Blogger"
+        ],
+        "url": "https://eslavathnarasimhanaik.github.io",
+        "image": "https://avatars.githubusercontent.com/u/164381248?v=4",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kothagudem",
+          "addressRegion": "Telangana",
+          "addressCountry": "India"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/eslavathnarasimhanaik",
+          "https://github.com/eslavathnarasimhanaik",
+          "https://www.instagram.com/narasimhanaik.ai",
+          "https://www.facebook.com/narasimhanaik993/",
+          "https://www.facebook.com/share/1CetPmAHFV/",
+          "https://x.com/eslavathnarasimhanaik",
+          "https://www.youtube.com/@eslavathnarasimhanaik-q1x",
+          "https://youtube.com/@eslavathnarasimhanaik-q1x?si=QQ0VtKhpcuvbwyEr",
+          "https://www.youtube.com/@narasimhamusic99",
+          "https://in.pinterest.com/eslavathnarasimhanaik/",
+          "https://pin.it/3a1TVvPTx",
+          "https://pin.it/7qYe90FF0",
+          "https://www.extrape.com/invite/W2OD9",
+          "https://www.blogger.com/profile/13813955681650389366",
+          "https://naikaa.me/"
+        ],
+        "knowsAbout": [
+          "Java",
+          "Spring Boot",
+          "REST APIs",
+          "React.js",
+          "Node.js",
+          "MongoDB",
+          "SQL",
+          "Git & GitHub Actions",
+          "Full-Stack Web Development",
+          "Responsive Web Design"
+        ],
+        "subjectOf": [
+          {
+            "@type": "SocialMediaPosting",
+            "@id": "https://www.linkedin.com/in/eslavathnarasimhanaik#post",
+            "name": "ESLAVATH NARASIMHA NAIK - LinkedIn Profile & Professional Posts",
+            "url": "https://www.linkedin.com/in/eslavathnarasimhanaik",
+            "headline": "Java Backend Developer & Full-Stack Engineer Updates",
+            "publisher": {
+              "@type": "Organization",
+              "name": "LinkedIn",
+              "url": "https://www.linkedin.com"
+            }
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://github.com/eslavathnarasimhanaik#source",
+            "name": "ESLAVATH NARASIMHA NAIK - GitHub Repositories & Source Code",
+            "url": "https://github.com/eslavathnarasimhanaik",
+            "codeRepository": "https://github.com/eslavathnarasimhanaik",
+            "programmingLanguage": ["Java", "JavaScript", "HTML", "CSS"],
+            "runtimePlatform": "Web"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://www.instagram.com/narasimhanaik.ai#post",
+            "name": "ESLAVATH NARASIMHA NAIK - Instagram Photos & Reels",
+            "description": "Developer lifestyle, visual highlights, and professional media updates on Instagram.",
+            "url": "https://www.instagram.com/narasimhanaik.ai",
+            "thumbnailUrl": "https://avatars.githubusercontent.com/u/164381248?v=4"
+          },
+          {
+            "@type": "SocialMediaPosting",
+            "@id": "https://www.facebook.com/narasimhanaik993/#post",
+            "name": "ESLAVATH NARASIMHA NAIK - Facebook Social Updates",
+            "description": "Public social updates and developer community interaction.",
+            "url": "https://www.facebook.com/narasimhanaik993/",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Facebook",
+              "url": "https://www.facebook.com"
+            }
+          },
+          {
+            "@type": "SocialMediaPosting",
+            "@id": "https://x.com/eslavathnarasimhanaik#post",
+            "name": "ESLAVATH NARASIMHA NAIK - X (Twitter) Developer Micro-posts",
+            "description": "Tech updates, coding insights, and micro-blogging on X.",
+            "url": "https://x.com/eslavathnarasimhanaik",
+            "publisher": {
+              "@type": "Organization",
+              "name": "X (Twitter)",
+              "url": "https://x.com"
+            }
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://www.youtube.com/@eslavathnarasimhanaik-q1x#video",
+            "name": "ESLAVATH NARASIMHA NAIK - YouTube Music & Video Channel",
+            "description": "Official video uploads, music tracks, and content creations associated with Eslavath Narasimha Naik.",
+            "url": "https://www.youtube.com/@eslavathnarasimhanaik-q1x",
+            "thumbnailUrl": "https://avatars.githubusercontent.com/u/164381248?v=4",
+            "uploadDate": "2026-01-01T00:00:00Z"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://in.pinterest.com/eslavathnarasimhanaik/#board",
+            "name": "ESLAVATH NARASIMHA NAIK - Pinterest Visual Boards & Pins",
+            "description": "Creative visual collections, boards, and design pins.",
+            "url": "https://in.pinterest.com/eslavathnarasimhanaik/",
+            "thumbnailUrl": "https://avatars.githubusercontent.com/u/164381248?v=4"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://www.extrape.com/invite/W2OD9#referral",
+            "name": "ESLAVATH NARASIMHA NAIK - Extrape Invite & Referral Profile",
+            "description": "Official networking invite and referral board for community rewards.",
+            "url": "https://www.extrape.com/invite/W2OD9"
+          },
+          {
+            "@type": "BlogPosting",
+            "@id": "https://www.blogger.com/profile/13813955681650389366#blogger",
+            "name": "ESLAVATH NARASIMHA NAIK - Blogger Profile & Technical Blog",
+            "headline": "Software Development, Career Insights, and Technology Updates",
+            "url": "https://www.blogger.com/profile/13813955681650389366",
+            "datePublished": "2026-01-01T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://naikaa.me/#website",
+        "url": "https://naikaa.me",
+        "name": "Loonemi",
+        "publisher": {
+          "@id": "https://eslavathnarasimhanaik.github.io/#person"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://naikaa.me/#profilepage",
+        "url": "https://naikaa.me",
+        "name": "Eslavath Narasimha Naik Profile Hub",
+        "about": {
+          "@id": "https://eslavathnarasimhanaik.github.io/#person"
+        },
+        "mainEntity": {
+          "@id": "https://eslavathnarasimhanaik.github.io/#person"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://naikaa.me/#application",
+        "url": "https://naikaa.me",
+        "name": "Loonemi (Loan EMI Calculator)",
+        "applicationCategory": "FinancialApplication",
+        "operatingSystem": "All",
+        "author": {
+          "@id": "https://eslavathnarasimhanaik.github.io/#person"
+        },
+        "description": "A premium financial utility calculator featuring a visual interactive dashboard to compute loan interest and monthly amortization schedules."
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="dark-theme">
+  <!-- Dynamic background glow effects -->
+  <div class="glow-bg glow-primary"></div>
+  <div class="glow-bg glow-secondary"></div>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <i class="fa-solid fa-calculator logo-icon"></i>
+        <span>Loonemi</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#calculator" class="active">Calculator</a>
+        <a href="#loanFormSection">Get Loan Offer</a>
+        <a href="#amortization">Payment Schedule</a>
+      </nav>
+      <div class="header-actions" style="display: flex; gap: 12px; align-items: center;">
+        <a href="admin.html" class="btn-secondary" style="padding: 8px 14px; text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 6px; border-radius: 10px;">
+          <i class="fa-solid fa-user-shield"></i> Admin Panel
+        </a>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle Light/Dark Mode">
+          <i class="fa-solid fa-sun icon-sun"></i>
+          <i class="fa-solid fa-moon icon-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="dashboard-container">
+    
+    <!-- Hero / Title Header -->
+    <section class="hero-section">
+      <h1>Premium Loan EMI Dashboard</h1>
+      <p>Calculate amortization details, compare interest parameters, and apply for verified bank rates instantly.</p>
+    </section>
+
+    <!-- Interactive Grid Layout -->
+    <div class="dashboard-grid">
+      
+      <!-- LEFT PANEL: Calculator Sliders or Form Tabs -->
+      <div class="panel-left">
+        <div class="tabs-header">
+          <button class="tab-btn active" data-tab="calcTab">
+            <i class="fa-solid fa-sliders"></i> EMI Calculator
+          </button>
+          <button class="tab-btn" data-tab="formTab" id="formTabBtn">
+            <i class="fa-solid fa-paper-plane"></i> Apply / Submit Details
+          </button>
+        </div>
+
+        <div class="tabs-content">
+          <!-- CALCULATOR TAB -->
+          <div id="calcTab" class="tab-pane active">
+            <div class="calc-group">
+              <div class="input-header">
+                <label for="loanAmountRange">Loan Amount</label>
+                <div class="input-val-container">
+                  <span class="currency">₹</span>
+                  <input type="number" id="loanAmountInput" min="50000" max="10000000" step="50000" value="1000000">
+                </div>
+              </div>
+              <div class="range-slider-wrapper">
+                <input type="range" id="loanAmountRange" min="50000" max="10000000" step="50000" value="1000000" class="slider">
+                <div class="range-labels">
+                  <span>₹50K</span>
+                  <span>₹50L</span>
+                  <span>₹1Cr</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <div class="input-header">
+                <label for="interestRateRange">Interest Rate (p.a.)</label>
+                <div class="input-val-container">
+                  <input type="number" id="interestRateInput" min="3" max="25" step="0.1" value="8.5">
+                  <span class="percentage">%</span>
+                </div>
+              </div>
+              <div class="range-slider-wrapper">
+                <input type="range" id="interestRateRange" min="3" max="25" step="0.1" value="8.5" class="slider">
+                <div class="range-labels">
+                  <span>3%</span>
+                  <span>14%</span>
+                  <span>25%</span>
+                </div>
+              </div>
+              <div class="bank-quick-select">
+                <span class="quick-bank-label">Quick Bank Rates:</span>
+                <div class="bank-badges">
+                  <button type="button" class="bank-badge" data-rate="8.5" data-bank="SBI">SBI (8.5%)</button>
+                  <button type="button" class="bank-badge" data-rate="8.7" data-bank="HDFC">HDFC (8.7%)</button>
+                  <button type="button" class="bank-badge" data-rate="8.8" data-bank="ICICI">ICICI (8.8%)</button>
+                  <button type="button" class="bank-badge" data-rate="14.5" data-bank="Slice">Slice (14.5%)</button>
+                  <button type="button" class="bank-badge" data-rate="18.0" data-bank="KreditBee">KreditBee (18%)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <div class="input-header">
+                <label for="tenureRange">Loan Tenure</label>
+                <div class="tenure-unit-toggle">
+                  <button type="button" class="unit-btn active" id="yearsBtn">Years</button>
+                  <button type="button" class="unit-btn" id="monthsBtn">Months</button>
+                </div>
+                <div class="input-val-container">
+                  <input type="number" id="tenureInput" min="1" max="30" step="1" value="5">
+                  <span id="tenureUnitText" class="unit-label">Yr</span>
+                </div>
+              </div>
+              <div class="range-slider-wrapper">
+                <input type="range" id="tenureRange" min="1" max="30" step="1" value="5" class="slider">
+                <div class="range-labels" id="tenureLabels">
+                  <span>1 Yr</span>
+                  <span>15 Yr</span>
+                  <span>30 Yr</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-actions">
+              <button class="btn-primary" id="applyRatesBtn">
+                Apply These Metrics to Form <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- FORM TAB (Original Loonemi form fields) -->
+          <div id="formTab" class="tab-pane">
+            <form action="/forms" method="POST" id="loanForm" class="glass-form">
+              <h3 class="form-title">Loan & EMI Form</h3>
+              
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="formName">Name <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="formName" name="name" placeholder="Eslavath Narasimha Naik" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="formEmail">Email <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="formEmail" name="email" placeholder="example@gmail.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="formPhone">Phone <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="text" id="formPhone" name="phone" placeholder="9876543210" required pattern="\d{10}">
+                  </div>
+                  <div class="error" id="phoneError">Enter a valid 10-digit Indian phone number.</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="formAddress">Address</label>
+                  <div class="input-wrapper">
+                    <i class="fa-regular fa-map"></i>
+                    <input type="text" id="formAddress" name="address" placeholder="Hyderabad, Telangana">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="formEmi">Expected EMI (₹)</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <input type="text" id="formEmi" name="emi" placeholder="Auto-calculated or custom">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="bank">Bank / Loan Provider <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <select id="bank" name="bank" required>
+                      <option value="">--Select Option--</option>
+                      <option value="SBI">State Bank of India (SBI)</option>
+                      <option value="HDFC">HDFC Bank</option>
+                      <option value="ICICI">ICICI Bank</option>
+                      <option value="Axis">Axis Bank</option>
+                      <option value="PNB">Punjab National Bank (PNB)</option>
+                      <option value="Slice">Slice</option>
+                      <option value="mPokket">mPokket</option>
+                      <option value="KreditBee">KreditBee</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="student-loan">Have you used a student loan before? <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <select id="student-loan" name="student-loan" required>
+                      <option value="">--Select Option--</option>
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Conditional Student Loan Details -->
+                <div id="student-loan-details" class="conditional-fields full-width">
+                  <div class="conditional-grid">
+                    <div class="form-group">
+                      <label for="loan-bank">Student Loan Bank Name <span class="req">*</span></label>
+                      <div class="input-wrapper">
+                        <i class="fa-solid fa-university"></i>
+                        <input type="text" id="loan-bank" name="loan-bank">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="loan-amount">Loan Amount (₹) <span class="req">*</span></label>
+                      <div class="input-wrapper">
+                        <i class="fa-solid fa-wallet"></i>
+                        <input type="number" id="loan-amount" name="loan-amount" min="0">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="loan-year">Loan Year <span class="req">*</span></label>
+                      <div class="input-wrapper">
+                        <i class="fa-regular fa-calendar"></i>
+                        <input type="number" id="loan-year" name="loan-year" placeholder="e.g. 2022" min="2000">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="loanType">Loan Type <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-landmark"></i>
+                    <select id="loanType" name="loanType" required>
+                      <option value="">--Select Loan Type--</option>
+                      <option value="home">Home Loan</option>
+                      <option value="personal">Personal Loan</option>
+                      <option value="education">Education Loan</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="paymentMode">Payment Mode <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <select id="paymentMode" name="paymentMode" required>
+                      <option value="">--Select Payment Mode--</option>
+                      <option value="auto_debit">Auto-debit</option>
+                      <option value="ecs">ECS</option>
+                      <option value="cheque">Cheque</option>
+                      <option value="upi">UPI</option>
+                      <option value="netbanking">Net Banking</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group full-width" id="upiFieldWrapper">
+                  <label for="upi">UPI ID <span class="req">*</span></label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-at"></i>
+                    <input type="text" id="upi" name="upi" placeholder="example@bank">
+                  </div>
+                  <div class="error" id="upiError">Please enter a valid UPI ID (e.g., name@bank).</div>
+                </div>
+              </div>
+
+              <div class="declaration-box">
+                <input type="checkbox" id="declare" name="declare" disabled>
+                <label for="declare">
+                  I have read and agree to the 
+                  <a href="policy.html" target="_blank" id="policyLink" class="policy-link">Terms & Policy</a>.
+                  <span class="policy-note">(Click the link to review and unlock the checkbox)</span>
+                </label>
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn-submit" disabled>
+                Submit Application <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: Dashboard Metrics & Charts -->
+      <div class="panel-right">
+        <div class="results-card glass-panel">
+          <h3>Calculated Estimates</h3>
+          
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="metric-title">Monthly EMI</span>
+              <span class="metric-value" id="emiVal">₹0</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-title">Total Interest</span>
+              <span class="metric-value secondary" id="interestVal">₹0</span>
+            </div>
+            <div class="metric-box full-width">
+              <span class="metric-title">Total Payment (Principal + Interest)</span>
+              <span class="metric-value highlight" id="totalVal">₹0</span>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="emiChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Amortization Schedule Table -->
+    <section class="amortization-section glass-panel" id="amortization">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-list-check"></i> Amortization Payment Schedule</h2>
+        <button id="toggleAmortization" class="btn-secondary">Show Amortization Details</button>
+      </div>
+      
+      <div class="amortization-table-wrapper" id="amortizationWrapper" style="display: none;">
+        <table class="amortization-table">
+          <thead>
+            <tr>
+              <th>Period</th>
+              <th>Beginning Balance</th>
+              <th>EMI Payment</th>
+              <th>Principal Paid</th>
+              <th>Interest Paid</th>
+              <th>Ending Balance</th>
+            </tr>
+          </thead>
+          <tbody id="amortizationBody">
+            <!-- Populated via Javascript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Success Modal for Form Submission -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content glass-panel">
+      <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h2>Application Submitted!</h2>
+      <p>Your loan estimation of <strong id="modalEmi">₹0</strong> per month has been compiled.</p>
+      
+      <div class="modal-rules">
+        <h4>Next Steps (Rules):</h4>
+        <ul>
+          <li><i class="fa-solid fa-share-nodes"></i> Share this form with <strong>300 people</strong> to unlock one free project.</li>
+          <li><i class="fa-solid fa-gift"></i> Earn between <strong>₹5 - ₹30</strong> for each valid form referral.</li>
+          <li><i class="fa-solid fa-receipt"></i> Ensure correct UPI details. Rewards will be processed via your entered UPI.</li>
+        </ul>
+      </div>
+
+      <button class="btn-primary" id="closeModalBtn">Close Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 Loonemi. Created by <a href="https://github.com/eslavathnarasimhanaik" target="_blank" rel="noopener noreferrer">Eslavath Narasimha Naik</a>.</p>
+      <div class="footer-links">
+        <a href="policy.html" target="_blank">Terms & Policy</a>
+        <a href="https://www.instagram.com/survey_emi?igsh=ZjBqMnhiY2Nna3Yy" target="_blank" rel="noopener noreferrer">Instagram Survey</a>
+        <a href="mailto:noplyemi@gmail.com">Contact Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript -->
+  <script src="emi.js"></script>
+</body>
+</html>
