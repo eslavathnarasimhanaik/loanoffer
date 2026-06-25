@@ -70,7 +70,7 @@ To ensure **100% uptime**, the backend is designed with a resilient connection h
    ```env
    PORT=3000
    ADMIN_PASSWORD=naik123
-   SUPABASE_URL=https://my-supabase-proxy.narasimhanaik591.workers.dev
+   SUPABASE_URL=https://your-supabase-proxy.workers.dev
    SUPABASE_KEY=your-supabase-service-role-key-here
    ```
 4. Start the server:
