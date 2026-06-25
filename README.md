@@ -17,6 +17,7 @@ Built with premium aesthetics, rich interactive charts, and a secure multi-layer
 
 ### 2. 🎁 Get Cashback on Form Submission
 - **Referral Rewards Program:** Submit your loan application details to qualify for instant referral rewards (up to ₹30 cashback directly to your UPI ID).
+- **24-Hour Payout Guarantee:** Cashback referral rewards are reviewed, processed, and received by users within **24 hours** of submission!
 - **Previous Student Loan Detection:** Intelligent conditional logic detects previous student loans and configures custom refinancing options.
 - **Secure Verification:** Simple, validated checkout form requesting address, phone number, and payout details (UPI / Auto Debit).
 
