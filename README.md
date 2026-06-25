@@ -94,4 +94,4 @@ To ensure **100% uptime**, the backend is designed with a resilient connection h
 *Spring Boot Java Developer & Full-Stack Engineer*
 - **LinkedIn:** [eslavathnarasimhanaik](https://www.linkedin.com/in/eslavathnarasimhanaik)
 - **GitHub:** [eslavathnarasimhanaik](https://github.com/eslavathnarasimhanaik)
-- **Website:** [naikaa.me](https://naikaa.me/)
+- **Website:** [eslavathnarasimhanaik](https://eslavathnarasimhanaik.github.io/)
