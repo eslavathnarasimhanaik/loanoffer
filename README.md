@@ -69,9 +69,9 @@ To ensure **100% uptime**, the backend is designed with a resilient connection h
 3. Set up your `.env` file in the root directory:
    ```env
    PORT=3000
-   ADMIN_PASSWORD=naik123
-   SUPABASE_URL=https://your-supabase-proxy.workers.dev
-   SUPABASE_KEY=your-supabase-service-role-key-here
+   ADMIN_PASSWORD=xxxxxxxxxxxx
+   SUPABASE_URL=xxxxxxxxxxxx
+   SUPABASE_KEY=xxxxxxxxxxxxx
    ```
 4. Start the server:
    ```bash
